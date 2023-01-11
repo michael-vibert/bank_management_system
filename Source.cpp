@@ -24,6 +24,13 @@ int main() {
 	Customer mike("Michael", "Vibert");
 	Customer janet("Janet", "Borrego");
 	Branch bunbury(1001, "Bunbury");
-	Account savings("SAV001", bunbury, 0.0, mike);
+	//Account savings("SAV001", bunbury, 0.0, mike);
+	Savings acc1(5.5, "SAV1002", bunbury, 0.0, janet);
+	double f = 4000.7;
+	acc1.set_balance(f, true);
+	//cout << acc1.get_acc_balance() << endl;
+	//cout << acc1.get_acc_id() << endl;
+
+	//acc1.print_details();
 
 }

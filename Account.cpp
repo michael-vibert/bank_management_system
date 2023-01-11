@@ -41,6 +41,13 @@ void Account::print_details() {
 	cout << "Account Balance: " << acc_balance << endl;
 }
 
+// derived account type 1 - Savings
 
-
-
+Savings::Savings(double interest_rate, Account(const char* acc_id, Branch this_branch, double balance, Customer this_cust))
+{
+	acc_id = acc_id;
+	cout << "New Account Created!" << endl;
+	print_details();
+	this->interest_rate = interest_rate;
+	this->sav_acc_name = "Savings";
+}

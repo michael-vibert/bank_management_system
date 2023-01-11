@@ -7,7 +7,7 @@ using namespace std;
 
 class Account
 {
-private:
+public:
 	const char* acc_id;
 	Branch acc_branch;
 	double acc_balance;
@@ -22,3 +22,10 @@ public:
 	void print_details();
 };
 
+class Savings : public Account {
+private:
+	double interest_rate;
+	string sav_acc_name = "Savings";
+public: 
+	Savings(double interest_rate, Account(const char* acc_id, Branch this_branch, double balance, Customer this_cust));
+};
