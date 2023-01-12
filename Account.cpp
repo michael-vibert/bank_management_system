@@ -43,7 +43,7 @@ void Account::print_details() {
 
 // derived account type 1 - Savings
 
-Savings::Savings(double interest_rate, Account(const char* acc_id, Branch this_branch, double balance, Customer this_cust))
+Savings::Savings(double interest_rate, const char* acc_id, Branch this_branch, double balance, Customer this_cust) : Account(acc_id, this_branch, balance, this_cust)
 {
 	acc_id = acc_id;
 	cout << "New Account Created!" << endl;

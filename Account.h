@@ -27,5 +27,5 @@ private:
 	double interest_rate;
 	string sav_acc_name = "Savings";
 public: 
-	Savings(double interest_rate, Account(const char* acc_id, Branch this_branch, double balance, Customer this_cust));
+	Savings(double interest_rate, const char* acc_id, Branch this_branch, double balance, Customer this_cust);
 };
