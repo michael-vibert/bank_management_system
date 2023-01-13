@@ -12,6 +12,7 @@ Branch::Branch(int branch_id, std::string name) {
 	this->branch_name = name;
 	cout << "New Branch created! \nBranch name: " << branch_name << endl;
 	cout << "Branch Id: " << branch_id << endl;
+	cout << endl;
 }
 
 int Branch::get_branch_id() {

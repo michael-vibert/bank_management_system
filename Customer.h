@@ -4,7 +4,7 @@
 class Customer
 {
 private:
-	int cust_id = 0;
+	int cust_id;
 	std::string cust_fname;
 	std::string cust_lname;
 public:
@@ -16,5 +16,5 @@ public:
 	void set_id(int id);
 	void set_cust_fname(std::string fname);
 	void set_cust_lname(std::string lname);
-	void update_db();
+	//void update_db();
 };

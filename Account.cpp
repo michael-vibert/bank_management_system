@@ -4,8 +4,9 @@ using namespace std;
 
 Account::Account() {}
 
-Account::Account(const char* acc_id, Branch branch_id, double balance, Customer cust) {
+Account::Account(int acc_id, Branch branch_id, double balance, Customer cust) {
 	this->acc_id = acc_id;
+	 
 	this->acc_branch = branch_id;
 	this->acc_balance = balance;
 	this->acc_cust = cust;
@@ -17,7 +18,7 @@ int Account::get_branch_id() {
 	return acc_branch.get_branch_id();
 }
 
-const char* Account::get_acc_id()
+int Account::get_acc_id()
 {
 	return acc_id;
 }
@@ -39,15 +40,19 @@ void Account::print_details() {
 	cout << "Account Id: " << acc_id << endl;
 	cout << "Account Branch: " << acc_branch.get_branch_name() << endl;
 	cout << "Account Balance: " << acc_balance << endl;
+	cout << endl;
 }
 
 // derived account type 1 - Savings
 
-Savings::Savings(double interest_rate, const char* acc_id, Branch this_branch, double balance, Customer this_cust) : Account(acc_id, this_branch, balance, this_cust)
+Savings::Savings(double interest_rate, int acc_id, Branch this_branch, double balance, Customer this_cust) : Account(acc_id, this_branch, balance, this_cust)
 {
-	acc_id = acc_id;
-	cout << "New Account Created!" << endl;
-	print_details();
+	this->acc_prefix = "SAV";
 	this->interest_rate = interest_rate;
 	this->sav_acc_name = "Savings";
+}
+
+const char* Savings::get_acc_prefix()
+{
+	return acc_prefix;
 }

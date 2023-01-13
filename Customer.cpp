@@ -20,8 +20,6 @@ Customer::Customer(std::string fname, std::string lname) {
 	number_of_customers++;
 	this->cust_fname = fname;
 	this->cust_lname = lname;
-
-	cout << cust_id << " :" << cust_fname << " :" << cust_lname << "." << endl;
 }
 
 int Customer::get_cust_id() {
