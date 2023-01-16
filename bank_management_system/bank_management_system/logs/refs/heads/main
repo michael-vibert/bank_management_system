@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 07dd304137be72b0483617920532dc2a74d90f61 michael-vibert <mike160384@hotmail.com> 1673417082 +0800	commit (initial): Been playing with BMS for a bit, about to implement a bit of inheritence to account class, cpp is why more tricky than other languages ive learnt
+07dd304137be72b0483617920532dc2a74d90f61 5c1ae181042e624f5aeba98d25584563c7e30b02 michael-vibert <mike160384@hotmail.com> 1673426627 +0800	commit: made some progress creating an inherited class
+5c1ae181042e624f5aeba98d25584563c7e30b02 b1accb727f96f5a0fb17152d0eb7460a7735705e michael-vibert <mike160384@hotmail.com> 1673512421 +0800	commit: Got the inheritance syntax working :)
+b1accb727f96f5a0fb17152d0eb7460a7735705e 55ad8acf1ae0169988c737e23a931107120cb6c4 michael-vibert <mike160384@hotmail.com> 1673594055 +0800	commit: updated database naming conventions, added prefixes to savings account
