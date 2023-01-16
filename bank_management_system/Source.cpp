@@ -38,7 +38,8 @@ int main() {
 	Savings(5.5, 1004, bunbury, 40400.65, kaite);
 	Savings(5.5, 1005, busselton, 300.68, janet);
 
-	/*Trans(300.40, kaite, mike);*/
+	Trans mi = Trans(300.40, kaite, mike);
+	mi.get_highest();
 
 	/*cout << branch_insert(bunbury) << endl;
 	Connection conn;

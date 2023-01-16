@@ -12,9 +12,8 @@ private:
 	bool trans_valid;
 
 public:
-
-	Trans();
 	Trans(double trans_amount, Customer withdraw_cust, Customer deposit_cust);
 	bool validate_trans();
 	void print_receipt();
+	int get_highest();
 };

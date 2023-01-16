@@ -18,7 +18,9 @@ public:
 	Connection();
 	int check_db_errors(int);
 	sqlite3 open_db();
+	void prep_sql(string a_sql);
 	void transaction(string a_sql);
+	void transaction_v2(string a_sql);
 	void add_cust_to_db(Customer &cust);
 	int callback(void* Not_used, int argc, char** arvg, char** azColName);
 };

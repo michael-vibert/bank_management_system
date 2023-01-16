@@ -4,6 +4,8 @@
 #include "Customer.h"
 #include <stdio.h>
 
+
+
 using namespace std;
 
 // argc = number of results, azColName = each returned column, argv = the value of item
@@ -17,7 +19,7 @@ int callback(void* Not_used, int argc, char** arvg, char** azColName) {
 Connection::Connection() {
 	
 	sqlite3* db = nullptr;							// Pointer for the sqlite3 object db
-	const char* db_location = "./bank_data.db";
+	const char* db_location = "./bank.db";
 	char *err_msg = 0;							// variable to hold any error msg
 	char* sql = nullptr;	
 
@@ -41,27 +43,57 @@ int Connection::check_db_errors(int p_rc) {
 		return 0;
 	}
 }
-//sqlite3 Connection::open_db() {
-//	try
-//	{
-//		int exit = 0;
-//		exit = sqlite3_open(db_location, &db);
-//		check_db_errors(rc);
-//		//string instructions = "ALTER TABLE " + string(a_sql) +" \
-//		//					   RENAME COLUMN cust_account_number TO cust_id;";
-//		//cout << instructions << endl;
-//		if (exit != SQLITE_OK) {
-//			cerr << "Error opening db" << err_msg << endl;
-//			sqlite3_free(err_msg);
-//		}
-//		else
-//			return db;
-//	}
-//	catch (const exception& e) {
-//		cerr << e.what();
-//	}
-//}
+// compile sql statement to binary
+void Connection::prep_sql(string a_sql) {
+	if (sqlite3_prepare_v2(db, a_sql.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+		printf("ERROR: while compiling sql: %s\n", sqlite3_errmsg(db));
+		sqlite3_close(db);
+		sqlite3_finalize(stmt);
+	}
+	else {
+		// execute sql statement, and while there are rows returned, print ID
+		int ret_code = 0;
+		while ((ret_code = sqlite3_step(stmt)) == SQLITE_ROW) {
+			printf("TEST: ID = %d\n", sqlite3_column_int(stmt, 0));
+		}
+		if (ret_code != SQLITE_DONE) {
+			//this error handling could be done better, but it works
+			printf("ERROR: while performing sql: %s\n", sqlite3_errmsg(db));
+			printf("ret_code = %d\n", ret_code);
+		}
 
+		//release resources
+		sqlite3_finalize(stmt);
+		sqlite3_close(db);
+	}
+}
+
+void Connection::transaction_v2(string a_sql) {
+	try
+	{
+		int exit = 0;
+		exit = sqlite3_open(db_location, &db);
+		check_db_errors(rc);
+		//string instructions = "ALTER TABLE " + string(a_sql) +" \
+		//					   RENAME COLUMN cust_account_number TO cust_id;";
+		//cout << instructions << endl;
+		exit = sqlite3_exec(db, a_sql.c_str(), NULL, 0, &err_msg);
+		if (exit != SQLITE_OK) {
+			cerr << "Error in transaction: " << err_msg << endl;
+			sqlite3_free(err_msg);
+			prep_sql(a_sql);
+		}
+		else {
+			prep_sql(a_sql);
+			cout << "Transaction completed Successfully" << endl;
+		}
+			
+		sqlite3_close(db);
+	}
+	catch (const exception& e) {
+		cerr << e.what();
+	}
+}
 
 void Connection::transaction(string a_sql) {
 	try

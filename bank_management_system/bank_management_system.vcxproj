@@ -127,11 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\sqlite\sqlite3.h" />
     <ClInclude Include="Account.h" />
     <ClInclude Include="Branch.h" />
     <ClInclude Include="Connection.h" />
     <ClInclude Include="Customer.h" />
-    <ClInclude Include="Header.h" />
     <ClInclude Include="sqlite3.h" />
     <ClInclude Include="Trans.h" />
   </ItemGroup>
@@ -142,19 +142,17 @@
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Source1.cpp" />
     <ClCompile Include="sqlite3.c" />
     <ClCompile Include="Trans.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\..\sqlite\sqlite3.exe" />
     <None Include="bank.db" />
     <None Include="bank_data.db" />
     <None Include="branch_seed.sql" />
     <None Include="seed.sql" />
+    <None Include="sqlite3.exe" />
     <None Include="sqlite3.h.gch" />
-  </ItemGroup>
-  <ItemGroup>
-    <Object Include="sqlite3.o" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
